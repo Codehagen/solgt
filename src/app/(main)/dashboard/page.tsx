@@ -10,8 +10,8 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AreaGraph } from "@/components/charts/area-graph";
-import { RadarChart } from "@/components/charts/Radar";
 import { RecentSales } from "@/components/dashboard/recent-sales";
+import { MarketInsights } from "@/components/charts/market-insights";
 
 export default function DashboardPage() {
   return (
@@ -29,9 +29,7 @@ export default function DashboardPage() {
       <Tabs defaultValue="overview" className="space-y-4">
         <TabsList>
           <TabsTrigger value="overview">Oversikt</TabsTrigger>
-          <TabsTrigger value="analytics" disabled>
-            Markedet
-          </TabsTrigger>
+          <TabsTrigger value="market">Markedet</TabsTrigger>
         </TabsList>
         <TabsContent value="overview" className="space-y-4">
           <DashboardOverview />
@@ -40,31 +38,15 @@ export default function DashboardPage() {
             <div className="col-span-4">
               <AreaGraph />
             </div>
-            <Card className="col-span-4 md:col-span-3">
-              <CardHeader>
-                <CardTitle>Nylig Vurderte Eiendommer</CardTitle>
-                <CardDescription>
-                  Klikk på en eiendom for å se detaljer.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <RecentSales />
-              </CardContent>
-            </Card>
-            <div className="col-span-4">
-              <RadarChart />
+            <div className="col-span-3">
+              <RecentSales />
             </div>
-            <Card className="col-span-4 md:col-span-3">
-              <CardHeader>
-                <CardTitle>Markedsaktivitet</CardTitle>
-                <CardDescription>
-                  Oversikt over nylige transaksjoner.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <RecentSales />
-              </CardContent>
-            </Card>
+          </div>
+        </TabsContent>
+        <TabsContent value="market" className="space-y-4">
+          <div className="grid gap-4">
+
+            <MarketInsights />
           </div>
         </TabsContent>
       </Tabs>

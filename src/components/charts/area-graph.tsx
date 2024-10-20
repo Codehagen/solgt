@@ -1,65 +1,108 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import dynamic from "next/dynamic";
+"use client";
 
-const AreaChart = dynamic(
-  () => import("recharts").then((mod) => mod.AreaChart),
-  { ssr: false }
-);
-const Area = dynamic(() => import("recharts").then((mod) => mod.Area), {
-  ssr: false,
-});
-const XAxis = dynamic(() => import("recharts").then((mod) => mod.XAxis), {
-  ssr: false,
-});
-const YAxis = dynamic(() => import("recharts").then((mod) => mod.YAxis), {
-  ssr: false,
-});
-const Tooltip = dynamic(() => import("recharts").then((mod) => mod.Tooltip), {
-  ssr: false,
-});
-const ResponsiveContainer = dynamic(
-  () => import("recharts").then((mod) => mod.ResponsiveContainer),
-  { ssr: false }
-);
+import { TrendingUp } from "lucide-react";
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 
-const data = [
-  { name: "Jan", salgspris: 4200000, takst: 4000000 },
-  { name: "Feb", salgspris: 4300000, takst: 4100000 },
-  { name: "Mar", salgspris: 4500000, takst: 4200000 },
-  { name: "Apr", salgspris: 4400000, takst: 4300000 },
-  { name: "Mai", salgspris: 4600000, takst: 4400000 },
-  { name: "Jun", salgspris: 4800000, takst: 4500000 },
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+
+export const description = "A stacked area chart";
+
+const chartData = [
+  { month: "January", desktop: 186, mobile: 80 },
+  { month: "February", desktop: 305, mobile: 200 },
+  { month: "March", desktop: 237, mobile: 120 },
+  { month: "April", desktop: 73, mobile: 190 },
+  { month: "May", desktop: 209, mobile: 130 },
+  { month: "June", desktop: 214, mobile: 140 },
 ];
+
+const chartConfig = {
+  desktop: {
+    label: "Desktop",
+    color: "hsl(var(--chart-1))",
+  },
+  mobile: {
+    label: "Mobile",
+    color: "hsl(var(--chart-2))",
+  },
+} satisfies ChartConfig;
 
 export function AreaGraph() {
   return (
     <Card>
       <CardHeader>
         <CardTitle>Markedstrender</CardTitle>
+        <CardDescription>
+          Sammenligning av salgspriser og takst de siste 6 månedene
+        </CardDescription>
       </CardHeader>
       <CardContent>
-        <ResponsiveContainer width="100%" height={300}>
-          <AreaChart data={data}>
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Area
-              type="monotone"
-              dataKey="salgspris"
-              stroke="#8884d8"
-              fill="#8884d8"
-              fillOpacity={0.3}
+        <ChartContainer config={chartConfig}>
+          <AreaChart
+            accessibilityLayer
+            data={chartData}
+            margin={{
+              left: 12,
+              right: 12,
+            }}
+          >
+            <CartesianGrid vertical={false} />
+            <XAxis
+              dataKey="month"
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+              tickFormatter={(value) => value.slice(0, 3)}
+            />
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent indicator="dot" />}
             />
             <Area
-              type="monotone"
-              dataKey="takst"
-              stroke="#82ca9d"
-              fill="#82ca9d"
-              fillOpacity={0.3}
+              dataKey="mobile"
+              type="natural"
+              fill="var(--color-mobile)"
+              fillOpacity={0.4}
+              stroke="var(--color-mobile)"
+              stackId="a"
+            />
+            <Area
+              dataKey="desktop"
+              type="natural"
+              fill="var(--color-desktop)"
+              fillOpacity={0.4}
+              stroke="var(--color-desktop)"
+              stackId="a"
             />
           </AreaChart>
-        </ResponsiveContainer>
+        </ChartContainer>
       </CardContent>
+      <CardFooter>
+        <div className="flex w-full items-start gap-2 text-sm">
+          <div className="grid gap-2">
+            <div className="flex items-center gap-2 font-medium leading-none">
+              Salgspriser ligger 5.2% over takst denne måneden{" "}
+              <TrendingUp className="h-4 w-4" />
+            </div>
+            <div className="flex items-center gap-2 leading-none text-muted-foreground">
+              Januar - Juni 2024
+            </div>
+          </div>
+        </div>
+      </CardFooter>
     </Card>
   );
 }
