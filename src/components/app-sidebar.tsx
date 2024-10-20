@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { usePathname } from "next/navigation";
 import {
   AudioWaveform,
   BookOpen,
@@ -13,6 +14,8 @@ import {
   Settings2,
   SquareTerminal,
   Building,
+  LifeBuoy,
+  Send,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -25,6 +28,11 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
 } from "@/components/ui/sidebar";
 
 // This is sample data.
@@ -53,22 +61,21 @@ const data = {
   ],
   navMain: [
     {
-      title: "Dashbord",
+      title: "Dashboard",
       url: "/dashboard",
       icon: PieChart,
-      isActive: true,
       items: [
         {
           title: "Oversikt",
-          url: "#",
+          url: "/dashboard/oversikt",
         },
         {
           title: "Favoritter",
-          url: "#",
+          url: "/dashboard/favoritter",
         },
         {
           title: "Innstillinger",
-          url: "#",
+          url: "/dashboard/innstillinger",
         },
       ],
     },
@@ -79,15 +86,15 @@ const data = {
       items: [
         {
           title: "Søk",
-          url: "#",
+          url: "/eiendommer/sok",
         },
         {
           title: "Til salgs",
-          url: "#",
+          url: "/eiendommer/til-salgs",
         },
         {
           title: "Nylig solgt",
-          url: "#",
+          url: "/eiendommer/nylig-solgt",
         },
       ],
     },
@@ -147,17 +154,52 @@ const data = {
       icon: GalleryVerticalEnd,
     },
   ],
+  navSecondary: [
+    {
+      title: "Support",
+      url: "#",
+      icon: LifeBuoy,
+    },
+    {
+      title: "Feedback",
+      url: "#",
+      icon: Send,
+    },
+  ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const pathname = usePathname();
+
+  const navMainWithActiveState = data.navMain.map((item) => ({
+    ...item,
+    isActive: pathname.startsWith(item.url),
+  }));
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain items={navMainWithActiveState} />
         <NavProjects projects={data.projects} />
+        <SidebarGroup className="mt-auto">
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {data.navSecondary.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild size="sm">
+                    <a href={item.url}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
