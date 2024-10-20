@@ -1,0 +1,200 @@
+[
+  {
+    "id": "PROP-001",
+    "address": "Storgata 1",
+    "city": "Oslo",
+    "matrikkel": "1234-56-789",
+    "floor": "3",
+    "bra": 85,
+    "price": 4500000,
+    "yield": 4.2,
+    "status": "godt_kjop"
+  },
+  {
+    "id": "PROP-002",
+    "address": "Kongens gate 10",
+    "city": "Bergen",
+    "matrikkel": "9876-54-321",
+    "floor": "2",
+    "bra": 120,
+    "price": 6000000,
+    "yield": 3.8,
+    "status": "darlig_kjop"
+  },
+  {
+    "id": "PROP-003",
+    "address": "Munkegata 5",
+    "city": "Trondheim",
+    "matrikkel": "5678-90-123",
+    "floor": "1",
+    "bra": 75,
+    "price": 3200000,
+    "yield": 4.5,
+    "status": "godt_kjop"
+  },
+  {
+    "id": "PROP-004",
+    "address": "Sjøgata 15",
+    "city": "Bodø",
+    "matrikkel": "2468-13-579",
+    "floor": "4",
+    "bra": 95,
+    "price": 3800000,
+    "yield": 4.0,
+    "status": "godt_kjop"
+  },
+  {
+    "id": "PROP-005",
+    "address": "Strandgata 7",
+    "city": "Tromsø",
+    "matrikkel": "1357-24-680",
+    "floor": "2",
+    "bra": 80,
+    "price": 3500000,
+    "yield": 4.3,
+    "status": "godt_kjop"
+  },
+  {
+    "id": "PROP-006",
+    "address": "Kirkegata 20",
+    "city": "Stavanger",
+    "matrikkel": "8642-97-531",
+    "floor": "5",
+    "bra": 110,
+    "price": 5500000,
+    "yield": 3.9,
+    "status": "darlig_kjop"
+  },
+  {
+    "id": "PROP-007",
+    "address": "Torggata 8",
+    "city": "Oslo",
+    "matrikkel": "9753-86-420",
+    "floor": "3",
+    "bra": 70,
+    "price": 4200000,
+    "yield": 4.1,
+    "status": "godt_kjop"
+  },
+  {
+    "id": "PROP-008",
+    "address": "Fjordgata 12",
+    "city": "Trondheim",
+    "matrikkel": "3579-24-681",
+    "floor": "1",
+    "bra": 100,
+    "price": 4800000,
+    "yield": 4.4,
+    "status": "godt_kjop"
+  },
+  {
+    "id": "PROP-009",
+    "address": "Strandveien 3",
+    "city": "Bodø",
+    "matrikkel": "1470-25-836",
+    "floor": "2",
+    "bra": 65,
+    "price": 2900000,
+    "yield": 4.6,
+    "status": "godt_kjop"
+  },
+  {
+    "id": "PROP-010",
+    "address": "Havnegata 18",
+    "city": "Tromsø",
+    "matrikkel": "2581-47-369",
+    "floor": "4",
+    "bra": 90,
+    "price": 4100000,
+    "yield": 4.2,
+    "status": "godt_kjop"
+  },
+  {
+    "id": "PROP-011",
+    "address": "Kongensgate 5",
+    "city": "Stavanger",
+    "matrikkel": "7539-51-628",
+    "floor": "3",
+    "bra": 85,
+    "price": 4700000,
+    "yield": 3.7,
+    "status": "darlig_kjop"
+  },
+  {
+    "id": "PROP-012",
+    "address": "Nygata 22",
+    "city": "Bergen",
+    "matrikkel": "9517-53-842",
+    "floor": "2",
+    "bra": 75,
+    "price": 3900000,
+    "yield": 4.0,
+    "status": "godt_kjop"
+  },
+  {
+    "id": "PROP-013",
+    "address": "Storgata 9",
+    "city": "Trondheim",
+    "matrikkel": "3698-74-125",
+    "floor": "5",
+    "bra": 120,
+    "price": 5800000,
+    "yield": 3.8,
+    "status": "darlig_kjop"
+  },
+  {
+    "id": "PROP-014",
+    "address": "Sjøgata 6",
+    "city": "Bodø",
+    "matrikkel": "1597-53-624",
+    "floor": "1",
+    "bra": 70,
+    "price": 3100000,
+    "yield": 4.5,
+    "status": "godt_kjop"
+  },
+  {
+    "id": "PROP-015",
+    "address": "Nordlysveien 11",
+    "city": "Tromsø",
+    "matrikkel": "7531-95-284",
+    "floor": "3",
+    "bra": 95,
+    "price": 4300000,
+    "yield": 4.1,
+    "status": "godt_kjop"
+  },
+  {
+    "id": "PROP-016",
+    "address": "Olav V's gate 14",
+    "city": "Stavanger",
+    "matrikkel": "8642-15-793",
+    "floor": "4",
+    "bra": 105,
+    "price": 5200000,
+    "yield": 3.9,
+    "status": "darlig_kjop"
+  },
+  {
+    "id": "PROP-017",
+    "address": "Karl Johans gate 25",
+    "city": "Oslo",
+    "matrikkel": "7539-62-841",
+    "floor": "6",
+    "bra": 130,
+    "price": 7500000,
+    "yield": 3.6,
+    "status": "darlig_kjop"
+  },
+  {
+    "id": "PROP-018",
+    "address": "Bryggen 8",
+    "city": "Bergen",
+    "matrikkel": "9517-84-263",
+    "floor": "2",
+    "bra": 80,
+    "price": 4600000,
+    "yield": 4.2,
+    "status": "godt_kjop"
+  }
+]
