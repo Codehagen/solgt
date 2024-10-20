@@ -21,32 +21,39 @@ import {
 export const description = "A stacked area chart";
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: "January", salgspris: 4200000, prisantydning: 4000000 },
+  { month: "February", salgspris: 4300000, prisantydning: 4100000 },
+  { month: "March", salgspris: 4500000, prisantydning: 4200000 },
+  { month: "April", salgspris: 4400000, prisantydning: 4300000 },
+  { month: "May", salgspris: 4600000, prisantydning: 4400000 },
+  { month: "June", salgspris: 4800000, prisantydning: 4500000 },
 ];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  salgspris: {
+    label: "Salgspris",
     color: "hsl(var(--chart-1))",
   },
-  mobile: {
-    label: "Mobile",
+  prisantydning: {
+    label: "Prisantydning",
     color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig;
 
 export function AreaGraph() {
+  const latestMonth = chartData[chartData.length - 1];
+  const priceDifference = latestMonth.salgspris - latestMonth.prisantydning;
+  const percentageDifference = (
+    (priceDifference / latestMonth.prisantydning) *
+    100
+  ).toFixed(1);
+
   return (
     <Card>
       <CardHeader>
         <CardTitle>Markedstrender</CardTitle>
         <CardDescription>
-          Sammenligning av salgspriser og takst de siste 6 månedene
+          Sammenligning av salgspriser og prisantydning de siste 6 månedene
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -72,19 +79,19 @@ export function AreaGraph() {
               content={<ChartTooltipContent indicator="dot" />}
             />
             <Area
-              dataKey="mobile"
+              dataKey="prisantydning"
               type="natural"
-              fill="var(--color-mobile)"
+              fill="var(--color-prisantydning)"
               fillOpacity={0.4}
-              stroke="var(--color-mobile)"
+              stroke="var(--color-prisantydning)"
               stackId="a"
             />
             <Area
-              dataKey="desktop"
+              dataKey="salgspris"
               type="natural"
-              fill="var(--color-desktop)"
+              fill="var(--color-salgspris)"
               fillOpacity={0.4}
-              stroke="var(--color-desktop)"
+              stroke="var(--color-salgspris)"
               stackId="a"
             />
           </AreaChart>
@@ -94,8 +101,8 @@ export function AreaGraph() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 font-medium leading-none">
-              Salgspriser ligger 5.2% over takst denne måneden{" "}
-              <TrendingUp className="h-4 w-4" />
+              Salgspriser ligger {percentageDifference}% over prisantydning
+              denne måneden <TrendingUp className="h-4 w-4" />
             </div>
             <div className="flex items-center gap-2 leading-none text-muted-foreground">
               Januar - Juni 2024

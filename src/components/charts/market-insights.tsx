@@ -82,11 +82,11 @@ const priceChartConfig: ChartConfig = {
 const salesChartConfig: ChartConfig = {
   listed: {
     label: "Lagt ut",
-    color: "hsl(var(--chart-3))",
+    color: "hsl(var(--chart-2))",
   },
   sold: {
     label: "Solgt",
-    color: "hsl(var(--chart-4))",
+    color: "hsl(var(--chart-1))",
   },
 };
 
