@@ -13,17 +13,17 @@ const ease = [0.16, 1, 0.3, 1];
 function HeroPill() {
   return (
     <motion.a
-      href="/blog/introducing-acme-ai"
+      href="/blog/introducing-solgt-no"
       className="flex w-auto items-center space-x-2 rounded-full bg-primary/20 px-2 py-1 ring-1 ring-accent whitespace-pre"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease }}
     >
       <div className="w-fit rounded-full bg-accent px-2 py-0.5 text-center text-xs font-medium text-primary sm:text-sm">
-        📣 Announcement
+        📣 Nyhet
       </div>
       <p className="text-xs font-medium text-primary sm:text-sm">
-        Introducing Acme.ai
+        Introduserer Solgt.no
       </p>
       <svg
         width="12"
@@ -55,21 +55,23 @@ function HeroTitles() {
           staggerChildren: 0.2,
         }}
       >
-        {["Automate", "your", "workflow", "with AI"].map((text, index) => (
-          <motion.span
-            key={index}
-            className="inline-block px-1 md:px-2 text-balance font-semibold"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: index * 0.2,
-              ease,
-            }}
-          >
-            {text}
-          </motion.span>
-        ))}
+        {["Se", "solgte", "boliger", "og", "verdiestimat"].map(
+          (text, index) => (
+            <motion.span
+              key={index}
+              className="inline-block px-1 md:px-2 text-balance font-semibold"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.8,
+                delay: index * 0.2,
+                ease,
+              }}
+            >
+              {text}
+            </motion.span>
+          )
+        )}
       </motion.h1>
       <motion.p
         className="mx-auto max-w-xl text-center text-lg leading-7 text-muted-foreground sm:text-xl sm:leading-9 text-balance"
@@ -81,7 +83,8 @@ function HeroTitles() {
           ease,
         }}
       >
-        No matter what problem you have, our AI can help you solve it.
+        Ikke gå inn i budrunden i blinde. Bruk tilsvarende verktøy som
+        eiendomsmeglerene. For boligkjøper, boligselger, utleier og investor.
       </motion.p>
     </div>
   );
@@ -104,7 +107,7 @@ function HeroCTA() {
           )}
         >
           <Icons.logo className="h-6 w-6" />
-          Get started for free
+          Kom i gang gratis
         </Link>
       </motion.div>
       <motion.p
@@ -113,7 +116,7 @@ function HeroCTA() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.0, duration: 0.8 }}
       >
-        7 day free trial. No credit card required.
+        7 dagers gratis prøveperiode. Ingen kredittkort nødvendig.
       </motion.p>
     </>
   );
@@ -129,7 +132,7 @@ function HeroImage() {
     >
       <HeroVideoDialog
         animationStyle="from-center"
-        videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+        videoSrc="https://www.youtube.com/watch?v=EpQqbRD2iTE&t"
         thumbnailSrc="/dashboard.png"
         thumbnailAlt="Hero Video"
         className="border rounded-lg shadow-lg max-w-screen-lg mt-16"
@@ -138,7 +141,7 @@ function HeroImage() {
   );
 }
 
-export default function Hero2() {
+export default function Hero() {
   return (
     <section id="hero">
       <div className="relative flex w-full flex-col items-center justify-start px-4 pt-32 sm:px-6 sm:pt-24 md:pt-32 lg:px-8">

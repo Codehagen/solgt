@@ -6,12 +6,12 @@ import { RiInstagramFill } from "react-icons/ri";
 export const BLUR_FADE_DELAY = 0.15;
 
 export const siteConfig = {
-  name: "acme.ai",
+  name: "Solgt.no",
   description: "Automate your workflow with AI",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   keywords: ["SaaS", "Template", "Next.js", "React", "Tailwind CSS"],
   links: {
-    email: "support@acme.ai",
+    email: "support@Solgt.no",
     twitter: "https://twitter.com/magicuidesign",
     discord: "https://discord.gg/87p2vpsat5",
     github: "https://github.com/magicuidesign/magicui",
@@ -144,30 +144,30 @@ export const siteConfig = {
   ],
   faqs: [
     {
-      question: "What is acme.ai?",
+      question: "What is Solgt.no?",
       answer: (
         <span>
-          acme.ai is a platform that helps you build and manage your AI-powered
+          Solgt.no is a platform that helps you build and manage your AI-powered
           applications. It provides tools and services to streamline the
           development and deployment of AI solutions.
         </span>
       ),
     },
     {
-      question: "How can I get started with acme.ai?",
+      question: "How can I get started with Solgt.no?",
       answer: (
         <span>
-          You can get started with acme.ai by signing up for an account on our
+          You can get started with Solgt.no by signing up for an account on our
           website, creating a new project, and following our quick-start guide.
           We also offer tutorials and documentation to help you along the way.
         </span>
       ),
     },
     {
-      question: "What types of AI models does acme.ai support?",
+      question: "What types of AI models does Solgt.no support?",
       answer: (
         <span>
-          acme.ai supports a wide range of AI models, including but not limited
+          Solgt.no supports a wide range of AI models, including but not limited
           to natural language processing, computer vision, and predictive
           analytics. We continuously update our platform to support the latest
           AI technologies.
@@ -175,10 +175,10 @@ export const siteConfig = {
       ),
     },
     {
-      question: "Is acme.ai suitable for beginners in AI development?",
+      question: "Is Solgt.no suitable for beginners in AI development?",
       answer: (
         <span>
-          Yes, acme.ai is designed to be user-friendly for both beginners and
+          Yes, Solgt.no is designed to be user-friendly for both beginners and
           experienced developers. We offer intuitive interfaces, pre-built
           templates, and extensive learning resources to help users of all skill
           levels create AI-powered applications.
@@ -186,10 +186,10 @@ export const siteConfig = {
       ),
     },
     {
-      question: "What kind of support does acme.ai provide?",
+      question: "What kind of support does Solgt.no provide?",
       answer: (
         <span>
-          acme.ai provides comprehensive support including documentation, video
+          Solgt.no provides comprehensive support including documentation, video
           tutorials, a community forum, and dedicated customer support. We also
           offer premium support plans for enterprises with more complex needs.
         </span>

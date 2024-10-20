@@ -18,7 +18,7 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
-      <Logos />
+      {/* <Logos />
       <Problem />
       <Solution />
       <HowItWorks />
@@ -28,7 +28,7 @@ export default function Home() {
       <Pricing />
       <FAQ />
       <Blog />
-      <CTA />
+      <CTA /> */}
       <Footer />
     </main>
   );
