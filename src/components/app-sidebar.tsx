@@ -54,7 +54,7 @@ const data = {
   navMain: [
     {
       title: "Dashbord",
-      url: "#",
+      url: "/dashboard",
       icon: PieChart,
       isActive: true,
       items: [
@@ -74,7 +74,7 @@ const data = {
     },
     {
       title: "Eiendommer",
-      url: "#",
+      url: "/eiendommer",
       icon: Map,
       items: [
         {
