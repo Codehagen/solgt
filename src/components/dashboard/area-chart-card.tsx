@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { TrendingUp } from "lucide-react"
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
+import { TrendingUp } from "lucide-react";
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 
 import {
   Card,
@@ -10,49 +10,53 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart"
-
-export const description = "An area chart with gradient fill"
+} from "@/components/ui/chart";
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
-]
+  { month: "Jan", salgspris: 4200000, takst: 4000000 },
+  { month: "Feb", salgspris: 4300000, takst: 4100000 },
+  { month: "Mar", salgspris: 4500000, takst: 4200000 },
+  { month: "Apr", salgspris: 4400000, takst: 4300000 },
+  { month: "Mai", salgspris: 4600000, takst: 4400000 },
+  { month: "Jun", salgspris: 4800000, takst: 4500000 },
+];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  salgspris: {
+    label: "Salgspris",
     color: "hsl(var(--chart-1))",
   },
-  mobile: {
-    label: "Mobile",
+  takst: {
+    label: "Takst",
     color: "hsl(var(--chart-2))",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 export function AreaChartCard() {
+  const latestMonth = chartData[chartData.length - 1];
+  const priceDifference = latestMonth.salgspris - latestMonth.takst;
+  const percentageDifference = (
+    (priceDifference / latestMonth.takst) *
+    100
+  ).toFixed(1);
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Area Chart - Gradient</CardTitle>
+        <CardTitle>Markedstrender</CardTitle>
         <CardDescription>
-          Showing total visitors for the last 6 months
+          Sammenligning av salgspriser og takst de siste 6 månedene
         </CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
           <AreaChart
-            accessibilityLayer
             data={chartData}
             margin={{
               left: 12,
@@ -69,45 +73,45 @@ export function AreaChartCard() {
             />
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
             <defs>
-              <linearGradient id="fillDesktop" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id="fillSalgspris" x1="0" y1="0" x2="0" y2="1">
                 <stop
                   offset="5%"
-                  stopColor="var(--color-desktop)"
+                  stopColor="var(--color-salgspris)"
                   stopOpacity={0.8}
                 />
                 <stop
                   offset="95%"
-                  stopColor="var(--color-desktop)"
+                  stopColor="var(--color-salgspris)"
                   stopOpacity={0.1}
                 />
               </linearGradient>
-              <linearGradient id="fillMobile" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id="fillTakst" x1="0" y1="0" x2="0" y2="1">
                 <stop
                   offset="5%"
-                  stopColor="var(--color-mobile)"
+                  stopColor="var(--color-takst)"
                   stopOpacity={0.8}
                 />
                 <stop
                   offset="95%"
-                  stopColor="var(--color-mobile)"
+                  stopColor="var(--color-takst)"
                   stopOpacity={0.1}
                 />
               </linearGradient>
             </defs>
             <Area
-              dataKey="mobile"
+              dataKey="takst"
               type="natural"
-              fill="url(#fillMobile)"
+              fill="url(#fillTakst)"
               fillOpacity={0.4}
-              stroke="var(--color-mobile)"
+              stroke="var(--color-takst)"
               stackId="a"
             />
             <Area
-              dataKey="desktop"
+              dataKey="salgspris"
               type="natural"
-              fill="url(#fillDesktop)"
+              fill="url(#fillSalgspris)"
               fillOpacity={0.4}
-              stroke="var(--color-desktop)"
+              stroke="var(--color-salgspris)"
               stackId="a"
             />
           </AreaChart>
@@ -117,14 +121,15 @@ export function AreaChartCard() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 font-medium leading-none">
-              Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+              Salgspriser ligger {percentageDifference}% over takst denne
+              måneden <TrendingUp className="h-4 w-4" />
             </div>
             <div className="flex items-center gap-2 leading-none text-muted-foreground">
-              January - June 2024
+              Januar - Juni 2024
             </div>
           </div>
         </div>
       </CardFooter>
     </Card>
-  )
+  );
 }
